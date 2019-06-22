@@ -108,14 +108,3 @@ let complex: {
 
 // complex = {}; // => error
 
-
-
-
-// CREATING CUSTOM TYPES
-
-// Type Alias
-
-type Complex = {
-    data: number[],
-    output: (all: boolean) => number[]
-};
