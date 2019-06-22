@@ -88,3 +88,34 @@ let userData: {
     name: "Max",
     age: 27
 };
+
+
+
+
+// COMPLEX OBJECTS
+
+let complex: {
+    data: number[],
+
+    // a function that recieves a bool param and returns a number.
+    output: (all: boolean) => number[]
+} = {
+    data: [100, 3.99, 10],
+    output: function (all: boolean): number[] {
+        return this.data;
+    }
+};
+
+// complex = {}; // => error
+
+
+
+
+// CREATING CUSTOM TYPES
+
+// Type Alias
+
+type Complex = {
+    data: number[],
+    output: (all: boolean) => number[]
+};
