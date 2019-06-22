@@ -50,7 +50,7 @@ console.log(returnMyName());
 
 // the void type allows to not have to return anything specific.
 
-function sayHello() {
+function sayHello(): void {
     console.log('ciao!');
 }
 
@@ -68,3 +68,8 @@ function add(a: number, b: number) {
 }
 
 console.log(add(1, 1));
+
+
+// FUNCTION TYPES
+
+let myMuptiply;
