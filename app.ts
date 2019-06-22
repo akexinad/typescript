@@ -57,10 +57,10 @@ function sayHello(): void {
 
 // ARGUMENT TYPES
 
-function multiply(value1, value2): number {
+function multiply(value1: number, value2: number): number {
     return value1 * value2;
 }
-console.log(multiply(2, 'Max')); // => This will return NaN
+// console.log(multiply(2, 'Max')); // => This will return NaN
 
 
 function add(a: number, b: number) {
@@ -72,4 +72,4 @@ console.log(add(1, 1));
 
 // FUNCTION TYPES
 
-let myMuptiply;
+let myMultiply: (val1: number, val2: number) => number;
