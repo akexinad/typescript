@@ -154,3 +154,13 @@ if (typeof finalValue === "number") {
 function neverReturns(): void {
     throw new Error('An error')
 }
+
+
+
+
+// NULLABLE TYPES
+
+let canBeNull: number | null = 12;
+canBeNull = null;
+let canAlsoBeNull;
+canAlsoBeNull = null;
