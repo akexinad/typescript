@@ -144,3 +144,13 @@ let finalValue = "A String";
 if (typeof finalValue === "number") {
     console.log("Final value is a a number");
 }
+
+
+
+
+// THE NEVER TYPE
+
+// This type is used in functions that should never return.
+function neverReturns(): void {
+    throw new Error('An error')
+}
