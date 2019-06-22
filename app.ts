@@ -126,3 +126,11 @@ let complex2: Complex = {
         return this.data.map( data => data * 2 );
     }
 }
+
+
+
+
+// UNION TYPES
+
+// It can only be a number or string.
+let myRealAge: number | string;
