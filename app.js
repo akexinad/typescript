@@ -24,3 +24,7 @@ var Color;
 })(Color || (Color = {}));
 var myColor = Color.blue;
 console.log(myColor);
+var car = "BMW";
+console.log(car);
+car = { brand: "BMW", series: 3 };
+console.log(car);
