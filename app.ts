@@ -70,6 +70,21 @@ function add(a: number, b: number) {
 console.log(add(1, 1));
 
 
+
+
 // FUNCTION TYPES
 
 let myMultiply: (val1: number, val2: number) => number;
+
+
+
+
+// OBJECT TYPE DEFINITION
+
+let userData: {
+    name: string,
+    age: number
+} = {
+    name: "Max",
+    age: 27
+};
