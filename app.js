@@ -28,3 +28,12 @@ var car = "BMW";
 console.log(car);
 car = { brand: "BMW", series: 3 };
 console.log(car);
+// FUNCTIONS
+function returnMyName() {
+    return myName;
+}
+console.log(returnMyName());
+// the void type allows to not have to return anything specific.
+function sayHello() {
+    console.log('ciao!');
+}

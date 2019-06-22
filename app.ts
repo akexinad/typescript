@@ -36,3 +36,35 @@ console.log(car);
 
 car = { brand: "BMW", series: 3 };
 console.log(car);
+
+
+
+
+// FUNCTIONS
+
+function returnMyName(): string {
+    return myName;
+}
+
+console.log(returnMyName());
+
+// the void type allows to not have to return anything specific.
+
+function sayHello() {
+    console.log('ciao!');
+}
+
+
+// ARGUMENT TYPES
+
+function multiply(value1, value2): number {
+    return value1 * value2;
+}
+console.log(multiply(2, 'Max')); // => This will return NaN
+
+
+function add(a: number, b: number) {
+    return a + b;
+}
+
+console.log(add(1, 1));
