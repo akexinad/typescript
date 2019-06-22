@@ -108,3 +108,21 @@ let complex: {
 
 // complex = {}; // => error
 
+
+
+
+// CREATING CUSTOM TYPES
+
+// Type Alias
+
+type Complex = {
+    data: number[],
+    output: (all: boolean) => number[]
+};
+
+let complex2: Complex = {
+    data: [1, 2, 3],
+    output: function (all: boolean): number[] {
+        return this.data.map( data => data * 2 );
+    }
+}
