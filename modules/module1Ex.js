@@ -1,4 +1,6 @@
 "use strict";
+// TYPE DEFINITIONS
+// VARIABLE DECLARATIONS
 var bankAccount = {
     money: 2000,
     deposit: function (value) {
