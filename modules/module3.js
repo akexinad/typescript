@@ -52,7 +52,6 @@ var Ferrari = /** @class */ (function (_super) {
     return Ferrari;
 }(Car));
 var myOtherCar = new Ferrari("F40");
-console.clear();
 // GETTERS AND SETTERS
 var Plant = /** @class */ (function () {
     function Plant() {
@@ -139,3 +138,9 @@ var OnlyOne = /** @class */ (function () {
 }());
 // let wrong = new OnlyOne('The Only One');  // => You cannot instantiate the class
 var right = OnlyOne.getInstance();
+console.log(right);
+console.clear();
+// READ ONLY PROPERTIES
+console.log(right.name);
+// right.name = "hello"; => Cannot assign to 'name' because it is a read-only property.
+console.log(right.name);

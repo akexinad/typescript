@@ -52,7 +52,7 @@ class Ferrari extends Car {
 
 const myOtherCar = new Ferrari("F40");
 
-console.clear();
+
 
 
 // GETTERS AND SETTERS
@@ -136,7 +136,7 @@ console.log(newProject);
 class OnlyOne {
     private static instance: OnlyOne;
 
-    private constructor(public name: string) {}
+    private constructor(public readonly name: string) {}
 
     static getInstance() {
         if (!OnlyOne.instance) {
@@ -148,3 +148,17 @@ class OnlyOne {
 
 // let wrong = new OnlyOne('The Only One');  // => You cannot instantiate the class
 let right = OnlyOne.getInstance();
+console.log(right);
+
+
+console.clear();
+
+
+
+// READ ONLY PROPERTIES
+
+
+console.log(right.name);
+// right.name = "hello"; => Cannot assign to 'name' because it is a read-only property.
+console.log(right.name);
+
