@@ -52,7 +52,7 @@ class Ferrari extends Car {
 
 const myOtherCar = new Ferrari("F40");
 
-
+console.clear();
 
 
 // GETTERS AND SETTERS
@@ -78,4 +78,20 @@ console.log(plant.species);
 plant.species = "Rose";
 console.log(plant.species);
 
+
+
+
+// STATIC PROPERTIES AND METHODS
+
+// Static props and methods can be used without having to instantiate the class.
+// These are great if you are building helper classes which bundle some useful project specific tools.
+class Helpers {
+    static PI: number = 3.14;
+    static calculateCircumference(diameter: number): number {
+        return this.PI * diameter;
+    }
+}
+
+console.log(2 * Helpers.PI);
+console.log(Helpers.calculateCircumference(6));
 

@@ -52,6 +52,7 @@ var Ferrari = /** @class */ (function (_super) {
     return Ferrari;
 }(Car));
 var myOtherCar = new Ferrari("F40");
+console.clear();
 // GETTERS AND SETTERS
 var Plant = /** @class */ (function () {
     function Plant() {
@@ -78,3 +79,17 @@ var plant = new Plant();
 console.log(plant.species);
 plant.species = "Rose";
 console.log(plant.species);
+// STATIC PROPERTIES AND METHODS
+// Static props and methods can be used without having to instantiate the class.
+// These are great if you are building helper classes which bundle some useful project specific tools.
+var Helpers = /** @class */ (function () {
+    function Helpers() {
+    }
+    Helpers.calculateCircumference = function (diameter) {
+        return this.PI * diameter;
+    };
+    Helpers.PI = 3.14;
+    return Helpers;
+}());
+console.log(2 * Helpers.PI);
+console.log(Helpers.calculateCircumference(6));
