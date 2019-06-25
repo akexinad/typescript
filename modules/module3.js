@@ -93,3 +93,31 @@ var Helpers = /** @class */ (function () {
 }());
 console.log(2 * Helpers.PI);
 console.log(Helpers.calculateCircumference(6));
+// ABSTRACT CLASSES
+// Abstract classes are classes that you CANNOT INSTANTIATE.
+// You can only INHERIT from these classes.
+// They sit there as an abstraction in your work.
+var Project = /** @class */ (function () {
+    function Project() {
+        this.projectName = "Default";
+        this.budget = 1000;
+    }
+    Project.prototype.calcBudget = function () {
+        return this.budget * 2;
+    };
+    return Project;
+}());
+var ITPRoject = /** @class */ (function (_super) {
+    __extends(ITPRoject, _super);
+    function ITPRoject() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ITPRoject.prototype.changeName = function (name) {
+        this.projectName = name;
+    };
+    return ITPRoject;
+}(Project));
+var newProject = new ITPRoject();
+console.log(newProject);
+newProject.changeName("Imagine Solve");
+console.log(newProject);

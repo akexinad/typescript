@@ -95,3 +95,32 @@ class Helpers {
 console.log(2 * Helpers.PI);
 console.log(Helpers.calculateCircumference(6));
 
+
+
+
+// ABSTRACT CLASSES
+
+// Abstract classes are classes that you CANNOT INSTANTIATE.
+// You can only INHERIT from these classes.
+// They sit there as an abstraction in your work.
+abstract class Project {
+    projectName: string = "Default";
+    budget: number = 1000;
+
+    abstract changeName(name: string): void;
+
+    calcBudget() {
+        return this.budget * 2;
+    }
+}
+
+class ITPRoject extends Project {
+    changeName(name: string): void {
+        this.projectName = name;
+    }
+}
+
+let newProject = new ITPRoject();
+console.log(newProject);
+newProject.changeName("Imagine Solve");
+console.log(newProject);
