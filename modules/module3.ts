@@ -124,3 +124,27 @@ let newProject = new ITPRoject();
 console.log(newProject);
 newProject.changeName("Imagine Solve");
 console.log(newProject);
+
+
+
+
+// PRIVATE CONSTRUCTORS AND SINGLETONS
+
+// Below is an example of a singleton class.
+// Singletion classes are used when you want only one instance of the class during runtime.
+// Declaring the constructor private means you CANNOT instantiate this class.
+class OnlyOne {
+    private static instance: OnlyOne;
+
+    private constructor(public name: string) {}
+
+    static getInstance() {
+        if (!OnlyOne.instance) {
+            OnlyOne.instance = new OnlyOne('The Only One');
+        }
+        return OnlyOne.instance;
+    }
+}
+
+// let wrong = new OnlyOne('The Only One');  // => You cannot instantiate the class
+let right = OnlyOne.getInstance();
