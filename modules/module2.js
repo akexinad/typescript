@@ -5,6 +5,7 @@ console.log(Math.max(2, 5, 34, 65, 99));
 console.log(Math.max.apply(Math, numbers));
 // REST
 // The rest operator is basically the spread operator used within the function parameters.
+// And instead of just spreading the numbers like above, it creates an array of numbers.
 function makeArray() {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
