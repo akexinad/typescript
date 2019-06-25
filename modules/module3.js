@@ -1,12 +1,10 @@
 "use strict";
 // This is the conventional way of declaring variables in TS.
 var Person = /** @class */ (function () {
-    function Person(name, username, type, age) {
-        this.name = name;
+    function Person(name, username) {
         this.username = username;
+        this.age = 44;
         this.name = name;
-        this.type = type;
-        this.age = age;
     }
     return Person;
 }());
@@ -14,12 +12,21 @@ var person = new Person("Fellini", "fell");
 console.log(person.username);
 // THIS IS SHORTER SYNTAX FOR DECLARING CLASS METHODS AND VARIABLES.
 var Car = /** @class */ (function () {
-    function Car(make, designer, model) {
+    function Car(make, model, designer) {
+        if (designer === void 0) { designer = 'pininfarina'; }
         this.make = make;
-        this.designer = designer;
         this.model = model;
+        this.designer = designer;
     }
+    Car.prototype.printModel = function () {
+        return this.model;
+    };
+    Car.prototype.setDesigner = function (designer) {
+        this.model = designer;
+        return designer;
+    };
     return Car;
 }());
-var myCar = new Car('Ferrari', 'Materazzi', '288GTO');
-console.log(myCar.model);
+var myCar = new Car('Ferrari', 'F40');
+console.log(myCar.printModel());
+console.log(myCar);

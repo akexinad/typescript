@@ -1,13 +1,10 @@
 // This is the conventional way of declaring variables in TS.
 class Person {
-    name: string;
-    private type: string;
-    protected age: number;
+    public name: string;
+    protected age: number = 44;
 
-    constructor(public name: string, public username: string, type: string, age: number) {
+    constructor(name: string, public username: string) {
         this.name = name;
-        this.type = type;
-        this.age = age;
     }
 }
 
@@ -22,11 +19,22 @@ class Car {
 
     constructor(
         public make: string,
-        private designer: string,
-        protected model: string
+        protected model: string,
+        private designer: string = 'pininfarina'
     ) { }
+
+    printModel() {
+        return this.model;
+    }
+    
+    setDesigner(designer: string) {
+        this.model = designer;
+        return designer;
+    }
 }
 
-const myCar = new Car('Ferrari', 'Materazzi', '288GTO');
+const myCar = new Car('Ferrari', 'F40');
 
-console.log(myCar.model);
+console.log(myCar.printModel());
+console.log(myCar);
+
