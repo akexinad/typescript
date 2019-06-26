@@ -37,3 +37,36 @@ printAll(['fellini', 'benigni', 'pasolini']);
 var echo2 = betterEcho;
 console.log(echo2("Something"));
 // console.log(echo2<string>(22)); // => Argument of type '22' is not assignable to parameter of type 'string'.ts(2345)
+// GENERIC CLASSES
+// Non Generic Version
+/*
+class SimpleMath {
+
+    constructor(
+        public baseValue: number,
+        public multiplyValue: number
+    ) { }
+    
+    calculate() {
+        return console.log(this.baseValue * this.multiplyValue);
+    }
+}
+
+const MyMath = new SimpleMath(10, 20);
+MyMath.calculate();
+
+*/
+// The Generic version
+var SimpleMath = /** @class */ (function () {
+    function SimpleMath(baseValue, multiplyValue) {
+        this.baseValue = baseValue;
+        this.multiplyValue = multiplyValue;
+    }
+    SimpleMath.prototype.calculate = function () {
+        // You can a + operator to tell TS that these will be of type number.
+        return +this.baseValue * +this.multiplyValue;
+    };
+    return SimpleMath;
+}());
+var math = new SimpleMath(30, "yes"); // => Argument of type '"yes"' is not assignable to parameter of type 'number'.ts(2345)
+console.log(math.calculate());

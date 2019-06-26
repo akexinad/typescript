@@ -57,3 +57,46 @@ const echo2: <Whoa>(data: Whoa) => Whoa = betterEcho;
 
 console.log(echo2<string>("Something"));
 // console.log(echo2<string>(22)); // => Argument of type '22' is not assignable to parameter of type 'string'.ts(2345)
+
+
+
+
+// GENERIC CLASSES
+
+// Non Generic Version
+
+/*
+class SimpleMath {
+
+    constructor(
+        public baseValue: number,
+        public multiplyValue: number
+    ) { }
+    
+    calculate() {
+        return console.log(this.baseValue * this.multiplyValue);
+    }
+}
+
+const MyMath = new SimpleMath(10, 20);
+MyMath.calculate();
+
+*/
+
+// The Generic version
+
+class SimpleMath<T> {
+    
+    constructor(
+        public baseValue: T,
+        public multiplyValue: T
+    ) { }
+    
+    calculate(): number {
+        // You can a + operator to tell TS that these will be of type number.
+        return +this.baseValue * +this.multiplyValue;
+    }
+}
+
+const math = new SimpleMath(30, "yes"); // => Argument of type '"yes"' is not assignable to parameter of type 'number'.ts(2345)
+console.log(math.calculate());
