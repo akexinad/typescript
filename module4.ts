@@ -9,6 +9,7 @@
 // Namespaces have the ability to structure your scopes and execution contexts in order to avoid variable name collisions.
 // NOTE that you have to export the objects that you to be available outside of the namespace scope.
 
-console.log(MyMath.calculateRectangle(20, 20));
-console.log(MyMath.calculateCircumference(20));
+import GeometryMath = MyMath.Geometry;
 
+console.log(GeometryMath.calculateRectangle(20, 20));
+console.log(GeometryMath.calculateCircumference(20));
