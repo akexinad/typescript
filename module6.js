@@ -21,3 +21,8 @@ console.log(betterEcho({
     name: "Max",
     age: 27
 }));
+// BUILT-IN GENERICS
+var testResults = [45, 65];
+// NOTE that this is the same as => const testResults: number[] = [45, 65];
+testResults.push(33);
+// testResults.push('yes'); // => error

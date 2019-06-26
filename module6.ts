@@ -15,6 +15,8 @@ function echo(data: any) {
 // GENERICS help with giving better errors.
 
 
+
+
 // This syntax tells TS that this is a generic function.
 function betterEcho<T>(data: T) {
     return data;
@@ -26,3 +28,13 @@ console.log(betterEcho({
     name: "Max",
     age: 27
 }));
+
+
+
+
+// BUILT-IN GENERICS
+
+const testResults: Array<number> = [45, 65];
+// NOTE that this is the same as => const testResults: number[] = [45, 65];
+testResults.push(33);
+// testResults.push('yes'); // => error
