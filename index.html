@@ -4,9 +4,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <script src="module4.js"></script>
+        <script src="node_modules/systemjs/dist/system.js"></script>
         <title>Document</title>
     </head>
     <body>
+        <script>
+            SystemJS.config({
+                baseURL: '/',
+                packages: {
+                    '/': {
+                        defaultExtension: 'js'
+                    }
+                }
+            });
+
+            SystemJS.import('module4-1.js');
+        </script>
     </body>
 </html>
