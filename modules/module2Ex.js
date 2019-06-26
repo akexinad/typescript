@@ -1,12 +1,11 @@
 "use strict";
 var double = function (value) { return value * 2; };
 console.log(double(10));
-var greet = function (name) {
-    if (name === void 0) { name = 'Fellini'; }
-    console.log("Hello " + name);
-};
-greet();
-greet('Benigni');
+// const greet = (name: string = 'Fellini') => {
+//     console.log(`Hello ${ name }`);
+// }
+// greet();
+// greet('Benigni');
 var array = [-3, 33, 38, 44, 5];
 console.log(Math.min.apply(Math, array));
 var newArray = [55, 90];

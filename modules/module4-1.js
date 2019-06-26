@@ -10,8 +10,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var Circle = __importStar(require("./math/circle"));
-var rectangle_1 = __importDefault(require("./math/rectangle"));
+var Circle = __importStar(require("../math/circle"));
+var rectangle_1 = __importDefault(require("../math/rectangle"));
 console.log(Circle.PI);
 console.log(Circle.calculateCircumference(10));
 console.log(rectangle_1.default(20, 50));

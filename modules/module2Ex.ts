@@ -4,11 +4,11 @@ console.log(double(10));
 
 
 
-const greet = (name: string = 'Fellini') => {
-    console.log(`Hello ${ name }`);
-}
-greet();
-greet('Benigni');
+// const greet = (name: string = 'Fellini') => {
+//     console.log(`Hello ${ name }`);
+// }
+// greet();
+// greet('Benigni');
 
 
 
