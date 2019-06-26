@@ -160,5 +160,4 @@ console.clear();
 
 console.log(right.name);
 // right.name = "hello"; => Cannot assign to 'name' because it is a read-only property.
-console.log(right.name);
 
