@@ -68,5 +68,6 @@ var SimpleMath = /** @class */ (function () {
     };
     return SimpleMath;
 }());
+// You can add constraints on what types are allowed.
 var math = new SimpleMath(30, "yes"); // => Argument of type '"yes"' is not assignable to parameter of type 'number'.ts(2345)
 console.log(math.calculate());

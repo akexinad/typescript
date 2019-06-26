@@ -85,11 +85,11 @@ MyMath.calculate();
 
 // The Generic version
 
-class SimpleMath<T extends number | string> {
+class SimpleMath<T extends number | string, U extends number | string> {
     
     constructor(
         public baseValue: T,
-        public multiplyValue: T
+        public multiplyValue: U
     ) { }
     
     calculate(): number {
@@ -98,5 +98,6 @@ class SimpleMath<T extends number | string> {
     }
 }
 
-const math = new SimpleMath<number | string>(30, "yes"); // => Argument of type '"yes"' is not assignable to parameter of type 'number'.ts(2345)
+// You can add constraints on what types are allowed.
+const math = new SimpleMath<number, string>(30, "yes"); // => Argument of type '"yes"' is not assignable to parameter of type 'number'.ts(2345)
 console.log(math.calculate());
