@@ -7,12 +7,17 @@ interface NamedPerson {
     firstName: string;
     age?: number; // The ? means that age is optional.
     [propName: string]: any;
+    greet?(lastName: string): void;
 }
 
 const person = {
     firstName: "Max",
     age: 27,
-    hobbies: ['cooking', 'sports']
+    hobbies: ['cooking', 'sports'],
+    greet(lastName: string) {
+        console.log(`Hi my name is ${ this.firstName } ${ lastName }`);
+        
+    }
 }
 
 function greet(person: NamedPerson) {
@@ -23,10 +28,10 @@ function changeName(person: NamedPerson) {
     person.firstName = "Anna";
 }
 
-greet({
-    firstName: "Max",
-    // age: 27
-    hobbies: 'sports'
-});
+// greet({
+//     firstName: "Max",
+//     // age: 27
+//     hobbies: 'sports'
+// });
 changeName(person);
-greet(person);
+person.greet('Lopez');

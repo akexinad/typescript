@@ -3,7 +3,10 @@
 var person = {
     firstName: "Max",
     age: 27,
-    hobbies: ['cooking', 'sports']
+    hobbies: ['cooking', 'sports'],
+    greet: function (lastName) {
+        console.log("Hi my name is " + this.firstName + " " + lastName);
+    }
 };
 function greet(person) {
     console.log("Hello " + person.firstName);
@@ -11,10 +14,10 @@ function greet(person) {
 function changeName(person) {
     person.firstName = "Anna";
 }
-greet({
-    firstName: "Max",
-    // age: 27
-    hobbies: 'sports'
-});
+// greet({
+//     firstName: "Max",
+//     // age: 27
+//     hobbies: 'sports'
+// });
 changeName(person);
-greet(person);
+person.greet('Lopez');
