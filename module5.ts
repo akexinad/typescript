@@ -55,7 +55,6 @@ myPerson.greet("Fellini");
 
 // FUNCTION TYPES
 
-
 // NOTE: The types have to match
 interface DoubleValueFunc {
     (number1: number, number2: number): number;
@@ -67,3 +66,23 @@ myDoubleFunction = function(value1: number, value2: number) {
 }
 
 console.log(myDoubleFunction(10, 25));
+
+
+
+
+// INTERFACE INHERITANCE
+
+// In this example, age is now compulsory.
+interface AgedPerson extends NamedPerson {
+    age: number;
+}
+
+const oldPerson: AgedPerson = {
+    firstName: 'Fellini',
+    age: 44,
+    greet(lastName: string) {
+        console.log("Hello");
+    }
+}
+
+console.log(oldPerson);
