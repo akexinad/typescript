@@ -5,6 +5,14 @@
 
 interface NamedPerson {
     firstName: string;
+    age?: number; // The ? means that age is optional.
+    [propName: string]: any;
+}
+
+const person = {
+    firstName: "Max",
+    age: 27,
+    hobbies: ['cooking', 'sports']
 }
 
 function greet(person: NamedPerson) {
@@ -15,11 +23,10 @@ function changeName(person: NamedPerson) {
     person.firstName = "Anna";
 }
 
-const person = {
+greet({
     firstName: "Max",
-    age: 27
-}
-
-greet(person);
+    // age: 27
+    hobbies: 'sports'
+});
 changeName(person);
 greet(person);
