@@ -22,19 +22,6 @@ function changeName(person) {
 // });
 changeName(person);
 person.greet('Lopez');
-var Person = /** @class */ (function () {
-    function Person() {
-    }
-    Person.prototype.greet = function (lastName) {
-        console.log("Hi my name is " + this.firstName + " " + lastName);
-    };
-    ;
-    return Person;
-}());
-var myPerson = new Person();
-myPerson.firstName = "Federico";
-greet(myPerson);
-myPerson.greet("Fellini");
 var myDoubleFunction;
 myDoubleFunction = function (value1, value2) {
     return (value1 + value2) * 2;
