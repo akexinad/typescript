@@ -85,7 +85,7 @@ MyMath.calculate();
 
 // The Generic version
 
-class SimpleMath<T> {
+class SimpleMath<T extends number | string> {
     
     constructor(
         public baseValue: T,
@@ -98,5 +98,5 @@ class SimpleMath<T> {
     }
 }
 
-const math = new SimpleMath(30, "yes"); // => Argument of type '"yes"' is not assignable to parameter of type 'number'.ts(2345)
+const math = new SimpleMath<number | string>(30, "yes"); // => Argument of type '"yes"' is not assignable to parameter of type 'number'.ts(2345)
 console.log(math.calculate());
