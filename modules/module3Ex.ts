@@ -1,7 +1,9 @@
+/*
+
 // Exercise 1
 
 class Car {
-    constructor(
+    constructor`(
         public name: string,
         public acceleration: number = 0
     ) { }
@@ -159,3 +161,5 @@ my.firstName = "Jo";
 console.log(my.firstName);
 my.firstName = "Joseph";
 console.log(my.firstName);
+
+*/

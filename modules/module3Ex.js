@@ -1,158 +1,166 @@
 "use strict";
+/*
+
 // Exercise 1
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var Car = /** @class */ (function () {
-    function Car(name, acceleration) {
-        if (acceleration === void 0) { acceleration = 0; }
-        this.name = name;
-        this.acceleration = acceleration;
-    }
-    Car.prototype.honk = function () {
+
+class Car {
+    constructor`(
+        public name: string,
+        public acceleration: number = 0
+    ) { }
+    
+    honk() {
         console.log("BEEEEEEEEEEEEEEEEEEP!!!!");
-    };
-    Car.prototype.accelerate = function (speed) {
+    }
+
+    accelerate(speed: number) {
         this.acceleration = this.acceleration + speed;
         return console.log(this.acceleration);
-    };
-    return Car;
-}());
-var myCar = new Car("Herbert");
+    }
+}
+
+const myCar = new Car("Herbert");
+
 myCar.honk();
 console.log(myCar.name);
 console.log(myCar.acceleration);
+
 myCar.accelerate(40);
+
+
+
+
 // Exercise 2
-var GeometricShape = /** @class */ (function () {
-    function GeometricShape(width, length) {
-        if (width === void 0) { width = 0; }
-        if (length === void 0) { length = 0; }
-        this.width = width;
-        this.length = length;
+
+class GeometricShape {
+    constructor(
+        public width: number = 0,
+        public length: number = 0
+    ) { }
+}
+
+const shape = new GeometricShape();
+
+class Rectangle extends GeometricShape {
+    constructor() {
+        super();
     }
-    return GeometricShape;
-}());
-var shape = new GeometricShape();
-var Rectangle = /** @class */ (function (_super) {
-    __extends(Rectangle, _super);
-    function Rectangle() {
-        return _super.call(this) || this;
-    }
-    Rectangle.prototype.calculateSize = function () {
+
+    calculateSize() {
         return console.log(this.width * this.length);
-    };
-    return Rectangle;
-}(GeometricShape));
-var myRectangle = new Rectangle();
+    }
+}
+
+const myRectangle = new Rectangle();
 myRectangle.width = 20;
 myRectangle.length = 20;
 myRectangle.calculateSize();
-var Person = /** @class */ (function () {
-    function Person(_firstName) {
-        if (_firstName === void 0) { _firstName = "The man has no name"; }
-        this._firstName = _firstName;
+
+class Person {
+
+    constructor(
+        private _firstName: string = "The man has no name"
+    ) { }
+
+    get firstName() {
+        return this._firstName;
     }
-    Object.defineProperty(Person.prototype, "firstName", {
-        get: function () {
-            return this._firstName;
-        },
-        set: function (value) {
-            if (value.length > 3) {
-                this._firstName = value;
-            }
-            else {
-                this._firstName = "That is not a name.";
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return Person;
-}());
-var my = new Person();
+
+    set firstName(value: string) {
+        if (value.length > 3) {
+            this._firstName = value
+        } else {
+            this._firstName = "That is not a name.";
+        }
+    }
+}
+
+let my = new Person();
+
 console.log(my.firstName);
-my.firstName = "jo";
+my.firstName = "jo"
 console.log(my.firstName);
-my.firstName = "Danny";
+my.firstName = "Danny"
 console.log(my.firstName);
+
+
+
+
 // MAX'S SOLUTIONS
+
+
 // EXERCISE 1
-var Car = /** @class */ (function () {
-    function Car(name) {
-        this.acceleration = 10;
-        this.name = name;
+
+class Car {
+    name: string;
+    acceleration: number = 10;
+
+    constructor(name: string) {
+        this.name = name
     }
-    Car.prototype.honk = function () {
+
+    honk() {
         console.log("TOOOOOOOOT");
-    };
-    Car.prototype.accelerate = function (speed) {
+    }
+
+    accelerate(speed: number) {
         this.acceleration += speed;
-    };
-    return Car;
-}());
-var myCar = new Car("BMW");
+    }
+}
+
+const myCar = new Car("BMW");
 myCar.honk();
-myCar.accelerate(20);
+myCar.accelerate(20)
 console.log(myCar.acceleration);
+
+
+
+
 // EXERCISE 2
-var BaseObject = /** @class */ (function () {
-    function BaseObject() {
-        // Skipping type declarations since TS can infer types.
-        this.width = 0;
-        this.length = 0;
-    }
-    return BaseObject;
-}());
-var Rectangle = /** @class */ (function (_super) {
-    __extends(Rectangle, _super);
-    function Rectangle() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Rectangle.prototype.calcSize = function () {
+
+class BaseObject {
+    // Skipping type declarations since TS can infer types.
+    width = 0;
+    length = 0;
+}
+
+class Rectangle extends BaseObject {
+    calcSize() {
         return this.width * this.length;
-    };
-    return Rectangle;
-}(BaseObject));
-var rectangle = new Rectangle();
+    }
+}
+
+const rectangle = new Rectangle();
 rectangle.width = 5;
 rectangle.length = 10;
 console.log(rectangle.calcSize());
+
+
+
+
 // EXERCISE 3
-var Person = /** @class */ (function () {
-    function Person() {
-        this._firstName = "";
+
+class Person {
+    private _firstName: string = "";
+
+    get firstName() {
+        return this._firstName;
     }
-    Object.defineProperty(Person.prototype, "firstName", {
-        get: function () {
-            return this._firstName;
-        },
-        set: function (value) {
-            if (value.length > 3) {
-                this._firstName = value;
-            }
-            else {
-                this._firstName = "";
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return Person;
-}());
-var my = new Person();
+
+    set firstName(value: string) {
+        if (value.length > 3) {
+            this._firstName = value;
+        } else {
+            this._firstName = "";
+        }
+    }
+}
+
+const my = new Person();
 console.log(my.firstName);
 my.firstName = "Jo";
 console.log(my.firstName);
 my.firstName = "Joseph";
 console.log(my.firstName);
+
+*/

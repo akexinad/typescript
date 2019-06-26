@@ -1,3 +1,5 @@
+/*
+
 // This is the conventional way of declaring variables in TS.
 class Person {
     public name: string;
@@ -161,3 +163,4 @@ console.clear();
 console.log(right.name);
 // right.name = "hello"; => Cannot assign to 'name' because it is a read-only property.
 
+*/

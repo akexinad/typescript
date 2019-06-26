@@ -1,145 +1,167 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+/*
+
 // This is the conventional way of declaring variables in TS.
-var Person = /** @class */ (function () {
-    function Person(name, username) {
-        this.username = username;
-        this.age = 44;
+class Person {
+    public name: string;
+    protected age: number = 44;
+
+    constructor(name: string, public username: string) {
         this.name = name;
     }
-    return Person;
-}());
-var person = new Person("Fellini", "fell");
+}
+
+const person = new Person("Fellini", "fell");
+
 console.log(person.username);
+
+
 // THIS IS SHORTER SYNTAX FOR DECLARING CLASS METHODS AND VARIABLES.
-var Car = /** @class */ (function () {
-    function Car(make, model, designer) {
-        if (designer === void 0) { designer = 'Pininfarina'; }
-        this.make = make;
-        this.model = model;
-        this.designer = designer;
-    }
-    Car.prototype.printModel = function () {
+
+class Car {
+
+    constructor(
+        public make: string,
+        protected model: string,
+        private designer: string = 'Pininfarina'
+    ) { }
+
+    printModel() {
         return this.model;
-    };
-    Car.prototype.setDesigner = function (designer) {
+    }
+    
+    setDesigner(designer: string) {
         this.model = designer;
         return designer;
-    };
-    return Car;
-}());
-var myCar = new Car('Ferrari', 'F40');
+    }
+}
+
+const myCar = new Car('Ferrari', 'F40');
+
 console.log(myCar.printModel());
 console.log(myCar);
+
+
+
+
 // INHERITANCE
-var Ferrari = /** @class */ (function (_super) {
-    __extends(Ferrari, _super);
-    function Ferrari(model) {
-        return _super.call(this, "Ferrari", model) || this;
+
+class Ferrari extends Car {
+
+    constructor(model: string) {
+        super("Ferrari", model);
     }
-    return Ferrari;
-}(Car));
-var myOtherCar = new Ferrari("F40");
+}
+
+const myOtherCar = new Ferrari("F40");
+
+
+
+
 // GETTERS AND SETTERS
-var Plant = /** @class */ (function () {
-    function Plant() {
-        this._species = "Default";
+
+class Plant {
+    private _species: string = "Default"
+
+    get species() {
+        return this._species;
     }
-    Object.defineProperty(Plant.prototype, "species", {
-        get: function () {
-            return this._species;
-        },
-        set: function (value) {
-            if (value.length > 3) {
-                this._species = value;
-            }
-            else {
-                this._species = "Default";
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return Plant;
-}());
-var plant = new Plant();
+
+    set species(value: string) {
+        if (value.length > 3) {
+            this._species = value;
+        } else {
+            this._species = "Default";
+        }
+    }
+}
+
+let plant = new Plant();
 console.log(plant.species);
 plant.species = "Rose";
 console.log(plant.species);
+
+
+
+
 // STATIC PROPERTIES AND METHODS
+
 // Static props and methods can be used without having to instantiate the class.
 // These are great if you are building helper classes which bundle some useful project specific tools.
-var Helpers = /** @class */ (function () {
-    function Helpers() {
-    }
-    Helpers.calculateCircumference = function (diameter) {
+class Helpers {
+    static PI: number = 3.14;
+    static calculateCircumference(diameter: number): number {
         return this.PI * diameter;
-    };
-    Helpers.PI = 3.14;
-    return Helpers;
-}());
+    }
+}
+
 console.log(2 * Helpers.PI);
 console.log(Helpers.calculateCircumference(6));
+
+
+
+
 // ABSTRACT CLASSES
+
 // Abstract classes are classes that you CANNOT INSTANTIATE.
 // You can only INHERIT from these classes.
 // They sit there as an abstraction in your work.
-var Project = /** @class */ (function () {
-    function Project() {
-        this.projectName = "Default";
-        this.budget = 1000;
-    }
-    Project.prototype.calcBudget = function () {
+abstract class Project {
+    projectName: string = "Default";
+    budget: number = 1000;
+
+    abstract changeName(name: string): void;
+
+    calcBudget() {
         return this.budget * 2;
-    };
-    return Project;
-}());
-var ITPRoject = /** @class */ (function (_super) {
-    __extends(ITPRoject, _super);
-    function ITPRoject() {
-        return _super !== null && _super.apply(this, arguments) || this;
     }
-    ITPRoject.prototype.changeName = function (name) {
+}
+
+class ITPRoject extends Project {
+    changeName(name: string): void {
         this.projectName = name;
-    };
-    return ITPRoject;
-}(Project));
-var newProject = new ITPRoject();
+    }
+}
+
+let newProject = new ITPRoject();
 console.log(newProject);
 newProject.changeName("Imagine Solve");
 console.log(newProject);
+
+
+
+
 // PRIVATE CONSTRUCTORS AND SINGLETONS
+
 // Below is an example of a singleton class.
 // Singletion classes are used when you want only one instance of the class during runtime.
 // Declaring the constructor private means you CANNOT instantiate this class.
-var OnlyOne = /** @class */ (function () {
-    function OnlyOne(name) {
-        this.name = name;
-    }
-    OnlyOne.getInstance = function () {
+class OnlyOne {
+    private static instance: OnlyOne;
+
+    private constructor(public readonly name: string) {}
+
+    static getInstance() {
         if (!OnlyOne.instance) {
             OnlyOne.instance = new OnlyOne('The Only One');
         }
         return OnlyOne.instance;
-    };
-    return OnlyOne;
-}());
+    }
+}
+
 // let wrong = new OnlyOne('The Only One');  // => You cannot instantiate the class
-var right = OnlyOne.getInstance();
+let right = OnlyOne.getInstance();
 console.log(right);
+
+
 console.clear();
+
+
+
 // READ ONLY PROPERTIES
+
+
 console.log(right.name);
 // right.name = "hello"; => Cannot assign to 'name' because it is a read-only property.
+
+*/ 
