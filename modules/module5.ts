@@ -38,6 +38,7 @@ function changeName(person: NamedPerson) {
 changeName(person);
 person.greet('Lopez');
 
+/*
 class Person implements NamedPerson {
     firstName: string;
     greet(lastName: string) {
@@ -50,7 +51,7 @@ myPerson.firstName = "Federico";
 greet(myPerson);
 myPerson.greet("Fellini");
 
-
+*/
 
 
 // FUNCTION TYPES
