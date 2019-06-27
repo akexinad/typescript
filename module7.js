@@ -42,6 +42,7 @@ var Plant = /** @class */ (function () {
         this.name = "Green Plant";
     }
     Plant = __decorate([
+        logging(true),
         printable
     ], Plant);
     return Plant;

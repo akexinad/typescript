@@ -42,6 +42,7 @@ function printable(constructorFn: Function) {
     }
 }
 
+@logging(true)
 @printable
 class Plant {
     name = "Green Plant";
