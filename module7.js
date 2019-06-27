@@ -31,3 +31,20 @@ var Car = /** @class */ (function () {
     ], Car);
     return Car;
 }());
+// ADVANCED DECORATORS
+function printable(constructorFn) {
+    constructorFn.prototype.print = function () {
+        console.log(this);
+    };
+}
+var Plant = /** @class */ (function () {
+    function Plant() {
+        this.name = "Green Plant";
+    }
+    Plant = __decorate([
+        printable
+    ], Plant);
+    return Plant;
+}());
+var plant = new Plant();
+plant.print();
