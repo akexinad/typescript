@@ -15,7 +15,7 @@ function betterEcho(data) {
     return data;
 }
 console.log(betterEcho("Max"));
-console.log(betterEcho("27")); // => This gives a more helpful error
+console.log(betterEcho("27")); // => This gives a more helpful error.
 console.log(betterEcho({
     name: "Max",
     age: 27

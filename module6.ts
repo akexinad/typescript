@@ -20,7 +20,7 @@ function betterEcho<T>(data: T) {
 }
 
 console.log(betterEcho("Max"));
-console.log(betterEcho<number>("27")); // => This gives a more helpful error
+console.log(betterEcho<number>("27")); // => This gives a more helpful error.
 console.log(betterEcho({
     name: "Max",
     age: 27
