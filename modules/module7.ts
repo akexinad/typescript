@@ -8,7 +8,7 @@ function logged(constructorFn: Function): void {
     console.log(constructorFn);
 }
 
-@logged(false)
+// @logged(false)
 class Person {
     constructor() {
         console.log('Hello!!!!');
@@ -24,7 +24,7 @@ function logging(value: boolean) {
     return value ? logged : null;
 }
 
-@logging(false)
+// @logging(false)
 class Car {
 
 }
@@ -40,7 +40,7 @@ function printable(constructorFn: Function) {
     }
 }
 
-@logging(false)
+// @logging(false)
 @printable
 class Plant {
     name = "Green Plant";
@@ -65,7 +65,7 @@ function editable(value: boolean) {
 function overwritable(value: boolean) {
     return function (target: any, propName: string): any {
         const newDescriptor: PropertyDescriptor = {
-            writable: value;
+            writable: value
         };
         return newDescriptor;
     }

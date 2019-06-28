@@ -13,25 +13,21 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 function logged(constructorFn) {
     console.log(constructorFn);
 }
+// @logged(false)
 var Person = /** @class */ (function () {
     function Person() {
         console.log('Hello!!!!');
     }
-    Person = __decorate([
-        logged(false)
-    ], Person);
     return Person;
 }());
 // FACTORY
 function logging(value) {
     return value ? logged : null;
 }
+// @logging(false)
 var Car = /** @class */ (function () {
     function Car() {
     }
-    Car = __decorate([
-        logging(false)
-    ], Car);
     return Car;
 }());
 // ADVANCED DECORATORS
@@ -40,12 +36,12 @@ function printable(constructorFn) {
         console.log(this);
     };
 }
+// @logging(false)
 var Plant = /** @class */ (function () {
     function Plant() {
         this.name = "Green Plant";
     }
     Plant = __decorate([
-        logging(false),
         printable
     ], Plant);
     return Plant;
