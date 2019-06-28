@@ -15,7 +15,7 @@ var Person = /** @class */ (function () {
         console.log('Hello!!!!');
     }
     Person = __decorate([
-        logged
+        logged(false)
     ], Person);
     return Person;
 }());
@@ -27,7 +27,7 @@ var Car = /** @class */ (function () {
     function Car() {
     }
     Car = __decorate([
-        logging(true)
+        logging(false)
     ], Car);
     return Car;
 }());
@@ -42,10 +42,34 @@ var Plant = /** @class */ (function () {
         this.name = "Green Plant";
     }
     Plant = __decorate([
-        logging(true),
+        logging(false),
         printable
     ], Plant);
     return Plant;
 }());
-var plant = new Plant();
-plant.print();
+// const plant = new Plant();
+// (<any>plant).print();
+// METHOD DECORATOR
+function editable(value) {
+    return function (target, propName, descriptor) {
+        descriptor.writable = value;
+    };
+}
+var Project = /** @class */ (function () {
+    function Project(name) {
+        this.projectName = name;
+    }
+    Project.prototype.calcBudget = function () {
+        console.log(1000);
+    };
+    __decorate([
+        editable(false)
+    ], Project.prototype, "calcBudget", null);
+    return Project;
+}());
+var project = new Project("Super Project");
+project.calcBudget();
+project.calcBudget = function () {
+    console.log(2000);
+};
+project.calcBudget();
