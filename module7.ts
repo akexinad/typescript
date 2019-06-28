@@ -10,10 +10,8 @@ function logged(constructorFn: Function): void {
 
 @logged(false)
 class Person {
-    
     constructor() {
         console.log('Hello!!!!');
-        
     }
 }
 
@@ -74,14 +72,14 @@ function overwritable(value: boolean) {
 }
 
 class Project {
-    @overwritable(false)
+    @overwritable(true)
     projectName: String;
 
     constructor(name: string) {
         this.projectName = name;
     }
 
-    @editable(false)
+    @editable(true)
     calcBudget() {
         console.log(1000);
     }
@@ -93,4 +91,35 @@ project.calcBudget = function() {
     console.log(2000);
 }
 
-project.calcBudget();
+// project.calcBudget();
+
+
+
+
+// PARAMETER DECORATOR
+
+function printInfo(target: any, methodName: string, paramIndex: number) {
+    console.log("target: ", target);
+    console.log("methodName: ", methodName);
+    console.log("paramIndex: ", paramIndex);
+}
+
+class Course {
+    name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    printStudentNumbers(mode: string, @printInfo printAll: boolean) {
+        if (printAll) {
+            console.log(10000);
+        } else {
+            console.log(2000);
+        }
+    }
+}
+
+const course = new Course();
+course.printStudentNumbers("anything", true);
+course.printStudentNumbers("anything", false);
