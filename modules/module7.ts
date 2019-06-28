@@ -120,6 +120,6 @@ class Course {
     }
 }
 
-const course = new Course();
+const course = new Course("My Course");
 course.printStudentNumbers("anything", true);
 course.printStudentNumbers("anything", false);

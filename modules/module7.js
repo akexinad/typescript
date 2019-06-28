@@ -111,6 +111,6 @@ var Course = /** @class */ (function () {
     ], Course.prototype, "printStudentNumbers", null);
     return Course;
 }());
-var course = new Course();
+var course = new Course("My Course");
 course.printStudentNumbers("anything", true);
 course.printStudentNumbers("anything", false);
