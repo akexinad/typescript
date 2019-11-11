@@ -49,3 +49,18 @@ var Plant = /** @class */ (function () {
 }());
 var plant = new Plant();
 plant.print();
+// METHOD DECORATOR
+var Project = /** @class */ (function () {
+    function Project() {
+    }
+    return Project;
+}());
+this.projectName = name;
+constructor(name, string);
+{
+    this.projectName = name;
+}
+calcBudget();
+{
+    console.log(1000);
+}

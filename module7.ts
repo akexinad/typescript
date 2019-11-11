@@ -50,3 +50,21 @@ class Plant {
 
 const plant = new Plant();
 (<any>plant).print();
+
+
+
+
+// METHOD DECORATOR
+
+class Project {
+    this.projectName = name;
+    
+    constructor(name: string) {
+        this.projectName = name;
+    }
+
+    calcBudget() {
+        console.log(1000);
+    }
+    
+}
