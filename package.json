@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/jquery": "^3.3.30",
     "lite-server": "^2.5.3",
     "systemjs": "^0.21.5"
   }
